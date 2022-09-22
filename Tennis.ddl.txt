@@ -1,0 +1,46 @@
+DROP TABLE PLAYERS;
+DROP TABLE WAITINGLIST;
+DROP TABLE COURTSCHEDULE;
+DROP TABLE RESERVATIONTYPES;
+DROP TABLE COURTS;
+
+CREATE TABLE Players 
+(
+	Name VARCHAR(50),
+	Age INT,
+	Skill_Level VARCHAR(50),
+	CONSTRAINT pk_players PRIMARY KEY (Name)
+);
+
+CREATE TABLE WaitingList
+(
+	Player_Name_FK VARCHAR(50),
+	Preferred_Day_FK VARCHAR(50),
+	StartTime_FK INT,
+	EndTime_FK INT,
+	CONSTRAINT pk_WaitingList PRIMARY KEY (Player_Name_FK)
+);
+
+CREATE TABLE CourtSchedule
+(
+	Court_Number_FK INT,
+	Date INT,
+	StartTime INT,
+	EndTime INT, 
+	DayOfWeek VARCHAR(20),
+	ReservationName_FK VARCHAR(50)
+);
+
+CREATE TABLE ReservationTypes
+(
+	ReservationName VARCHAR(50),
+	Price INT,
+	CONSTRAINT pk_ReservationTypes PRIMARY KEY (ReservationName)
+);
+
+CREATE TABLE Courts
+(
+	Court_Number INT,
+	Surface_Type VARCHAR(50),
+	CONSTRAINT pk_Courts PRIMARY KEY (Court_Number)
+);
